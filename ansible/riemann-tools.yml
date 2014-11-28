@@ -1,0 +1,9 @@
+- hosts: riemann-tools
+  sudo: yes
+  roles:
+    - riemann-tools
+  vars:
+    riemann_host: "10.0.3.2"
+    riemann_port: "5555"
+    riemann_tools_cmd: "riemann-health"
+    riemann_tools_upstart_name: "riemann-health"

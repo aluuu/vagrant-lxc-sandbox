@@ -1,0 +1,23 @@
+---
+
+- name: Enable Epel
+  yum: name={{ epel_url }} 
+       state=present
+  tags:
+   - deps
+
+- name: Install Java on RedHat OS family
+  yum: name={{ item.package }}
+       state=latest
+  with_items: riemann_packages
+  tags:
+   - deps
+
+- name: Get {{ riemann_rpm }} on RedHat OS family
+  get_url: url={{ riemann_rpm }}
+           dest=/tmp
+  register: riemann_pkg_rpm
+
+- name: Install Riemann on RedHat OS family
+  yum: name={{ riemann_pkg_rpm.dest }}
+       state=present

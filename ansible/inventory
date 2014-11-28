@@ -1,0 +1,15 @@
+[riemann-server]
+10.0.3.2
+
+[riemann-tools]
+10.0.3.2
+10.0.3.3
+10.0.3.4
+
+[all:children]
+riemann-server
+riemann-tools
+
+[all:vars]
+ansible_ssh_user=vagrant
+ansible_ssh_pass=vagrant

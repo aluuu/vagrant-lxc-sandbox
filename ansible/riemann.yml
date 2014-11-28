@@ -1,0 +1,11 @@
+- hosts: riemann-server
+  sudo: yes
+  user: 'vagrant'
+  roles:
+    - riemann
+    - riemann-dash
+  vars:
+    riemann_deb: "http://aphyr.com/riemann/riemann_0.2.6_all.deb"
+    riemann_open_jdk: "openjdk-7-jre"
+    includedir: ""
+    tags: ["riemann"]

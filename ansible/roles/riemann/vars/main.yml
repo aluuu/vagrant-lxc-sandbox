@@ -1,0 +1,14 @@
+---
+# vars file for riemann
+
+riemann_packages:
+ - { package: "{{ riemann_open_jdk }}" }
+
+epel_url: "http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm"
+riemann_deb: "http://aphyr.com/riemann/riemann_0.2.5_all.deb"
+riemann_rpm: "http://aphyr.com/riemann/riemann-0.2.5-1.noarch.rpm"
+
+riemann_conf: "/etc/riemann/riemann.config"
+
+includedir: ""
+riemann_user: "riemann"

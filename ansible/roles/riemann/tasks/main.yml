@@ -1,0 +1,12 @@
+---
+# tasks file for riemann
+
+- include: install_riemann_Debian.yml
+  when: ansible_os_family == "Debian"
+
+- include: install_riemann_RedHat.yml
+  when: ansible_os_family == "RedHat"
+
+- include: configure_riemann.yml
+  tags:
+   - configure

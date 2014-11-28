@@ -1,0 +1,9 @@
+---
+- name: Copy Riemann Configuration
+  template: src={% if include_dir is defined %}{{ include_dir }}riemann.config.j2{% else %}riemann.config.j2{% endif %}
+            dest={{ riemann_conf }}
+            owner={{ riemann_user }}
+            group={{ riemann_user }}
+            mode=0644
+  notify:
+   - restart riemann
